@@ -2,6 +2,7 @@
 class myElement extends HTMLElement {
     constructor(){
         super()
+        this.attachShadow({mode:'open'}) // esta es la caja de encapsulamiento, se manifiesta fuera
                                                    //constructor primer ciclo
         
     }
@@ -10,7 +11,7 @@ class myElement extends HTMLElement {
         template.innerHTML = `
         
         <section>
-            <h2>hola mundo</h2>
+            <h2 class='title'>hola mundo</h2>
             <div>
                 <p>soy mas texto de ejemplo</p>
             </div>
@@ -35,7 +36,7 @@ class myElement extends HTMLElement {
         `
     }
     render(){
-        this.append(this.geTemplate().content.cloneNode(true))
+        this.shadowRoot.append(this.geTemplate().content.cloneNode(true))
     }
     connectedCallback(){
         this.render()
