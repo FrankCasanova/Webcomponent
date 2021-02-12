@@ -18,13 +18,13 @@ template.innerHTML = `
 class myElement extends HTMLElement {
     constructor(){
         super()
-                                                   //constructor
+                                                   //constructor primer ciclo
         this.p = document.createElement('p')
     }
     connectedCallback(){
         this.p.textContent = 'hola mundo'
-        this.appendChild(this.p)                 //conected callback
-        this.appendChild(template)
+        this.append(this.p)                 //conected callback segundo ciclo
+        this.append(template)
     }
 }
 customElements.define('my-element', myElement)
